@@ -21,6 +21,5 @@ class starter {
 	sc.nextLine();
 	System.out.println("If I have a dollar and two quarters, how much money do I have?");
 	double dollar = sc.nextDouble();
-
 	}
 }
