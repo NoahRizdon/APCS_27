@@ -1,0 +1,76 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int minRange = 1;
+        int maxRange = 1000;
+
+        int computerSecretNumber = random.nextInt(maxRange) + 1;
+
+        boolean isGameOver = false;
+        boolean userWon = false;
+
+        System.out.println("==================================================");
+        System.out.println("          WELCOME TO HIGHER OR LOWER            ");
+        System.out.println("==================================================");
+        System.out.println("Think of a number between 1 and 1000.");
+        System.out.println("I will try to guess yours and you try to guess mine!");
+        System.out.println("--------------------------------------------------");
+
+        System.out.print("Enter your secret number (1-1000) to start: ");
+        int userSecretNumber = scanner.nextInt();
+
+        int compMin = minRange;
+        int compMax = maxRange;
+
+        System.out.println("Game Started! Let's see who guesses first...");
+
+        while (!isGameOver) {
+            System.out.print("Your Guess (1-1000): ");
+            int userGuess = scanner.nextInt();
+
+            if (userGuess == computerSecretNumber) {
+                System.out.println("You guessed my secret number (" + computerSecretNumber + ")!");
+                userWon = true;
+                isGameOver = true;
+            } else if (userGuess < computerSecretNumber) {
+                System.out.println("My number is HIGHER than " + userGuess + ".");
+            } else {
+                System.out.println("My number is LOWER than " + userGuess + ".");
+            }
+
+            if (isGameOver) {
+                break;
+            }
+
+            int computerGuess = (int)(Math.random()*(compMax-compMin + 1))+compMin;
+            System.out.println("I guess: " + computerGuess);
+
+            if (computerGuess == userSecretNumber) {
+                System.out.println("I guessed your number (" + userSecretNumber + ")!");
+                userWon = false;
+                isGameOver = true;
+            } else if (computerGuess < userSecretNumber) {
+                System.out.println("Bruh my guess was too low!");
+                compMin = computerGuess + 1;
+            } else {
+                System.out.println("Bruh my guess was too high!");
+                compMax = computerGuess - 1;
+            }
+
+            System.out.println("--------------------------------------------------");
+        }
+
+        System.out.println("==================================================");
+        if (userWon) {
+            System.out.println("VICTORY! You beat me!");
+        } else {
+            System.out.println("GAME OVER! I guessed your number first!");
+        }
+        System.out.println("==================================================");
+    }
+}
