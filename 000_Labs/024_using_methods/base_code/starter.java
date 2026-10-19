@@ -13,9 +13,11 @@ class starter {
 	static ArrayList<String> arr = new ArrayList<String>();
 
 	public static void main(String args[]) throws InterruptedException {
-		// Write your code here!
+	System.out.println("Start your engines!");
+	startTimer;
 
-		
+	
+
 	}
 
 	// This method returns the local current time as a String
