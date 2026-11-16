@@ -11,9 +11,12 @@ import java.util.Random;
 public class BaseClass {
 	int example = 0;
 
-	public BaseClass() {
-		
-		
+	public static printAll(int [] a){
+		int i=0
+		while(i<a.length()){
+			System.out.println(a[i]);
+			i++
+		}
 	}
 
 }
